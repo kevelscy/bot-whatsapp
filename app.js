@@ -64,8 +64,8 @@ const flowPrincipal = addKeyword(['hola', 'Hola', 'ole', 'alo'])
         [flowDocs, flowGracias, flowTuto, flowDiscord]
     )
 
-const buttonsFlow = addKeyword('botones').addAnswer('Este mensaje envia tres botones', {
-    buttons: [{ body: 'doc' }, { body: 'gracias' }, { body: 'discord' }],
+const buttonsFlow = addKeyword(['botones', 'flow']).addAnswer('Estos son botones', {
+    buttons: [{ body: 'doc' }, { body: 'ok' }],
 })
 
 const main = async () => {
