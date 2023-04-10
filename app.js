@@ -1,8 +1,10 @@
+const dotenv = require('dotenv')
 const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
 
 const TwilioProvider = require('@bot-whatsapp/provider/twilio')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
+dotenv.config()
 
 const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
 
@@ -71,9 +73,9 @@ const main = async () => {
     const adapterFlow = createFlow([flowPrincipal, buttonsFlow])
 
     const adapterProvider = createProvider(TwilioProvider, {
-        accountSid: 'AC5151bc6ad5a3f0e9ae22d56dc9baa22e',
-        authToken: '9a5cdc19c052e62c3aa50f50d393b008',
-        vendorNumber: '+15075688896',
+        accountSid: process.env.TWILIO_ACCOUNT_SID,
+        authToken: process.env.TWILIO_AUTH_TOKEN,
+        vendorNumber: process.env.TWILIO_VENDOR_NUMBER,
     })
 
     createBot({
